@@ -183,7 +183,7 @@ img {
     text-align: center;
     border-bottom: 4px solid var(--accent);
     overflow: hidden;
-    min-height: 530px;
+    min-height: 500px;
     display: flex;
     align-items: center;
 }
@@ -214,7 +214,7 @@ img {
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .carousel-overlay {
@@ -223,10 +223,9 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(10, 17, 40, 0.7), rgba(10, 17, 40, 0.9));
+    background: linear-gradient(to bottom, rgba(10, 17, 40, 0.7), rgba(10, 17, 40, 0.85));
     z-index: 1;
 }
-
 
 .hero-content-wrapper {
     position: relative;
@@ -246,16 +245,14 @@ img {
     background: rgba(255, 255, 255, 0.15);
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     font-size: 2rem;
-    line-height: 40px;  /* Change this to match height */
+    line-height: 1;
     cursor: pointer;
     transition: all 0.3s;
     backdrop-filter: blur(5px);
-    padding: 0;  /* Add this */
-    text-align: center;  /* Add this */
 }
 
 .carousel-control:hover {
@@ -436,13 +433,11 @@ img {
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
     color: var(--black);
-    text-align: center;
 }
 
 .section-subtitle {
     font-size: 1.0625rem;
     color: var(--gray-600);
-    text-align: center;
 }
 
 .section-cta {
@@ -600,23 +595,45 @@ img {
     margin-bottom: var(--spacing-md);
 }
 
-.equipment-cta {
-    display: block;
-    text-align: center;
-    padding: 12px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 0.9375rem;
-    transition: all 0.2s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+.equipment-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
     margin-top: auto;
 }
 
-.equipment-cta:hover {
+.equipment-cta {
+    display: block;
+    text-align: center;
+    padding: 12px 8px;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.equipment-cta-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.equipment-cta-primary:hover {
     background: var(--primary-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.equipment-cta-secondary {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-cta-secondary:hover {
+    background: var(--primary);
+    color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -662,7 +679,6 @@ img {
 .services-overview {
     padding: var(--spacing-2xl) 0;
     background: var(--gray-100);
-    
 }
 
 .services-content {
@@ -670,7 +686,6 @@ img {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2xl);
     align-items: center;
-    
 }
 
 .services-text h2 {
@@ -695,7 +710,6 @@ img {
     padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
     color: var(--gray-700);
     position: relative;
-    
 }
 
 .services-list li::before {
@@ -708,7 +722,6 @@ img {
 
 .services-image {
     height: 400px;
-
 }
 
 .services-placeholder {
@@ -717,7 +730,6 @@ img {
     background: var(--gray-300);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
-    
 }
 
 /* ===== TRUST SIGNALS ===== */
@@ -735,6 +747,42 @@ img {
 .trust-item {
     text-align: center;
     padding: var(--spacing-lg);
+}
+
+.trust-item-highlight {
+    background: var(--gray-100);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--accent);
+    position: relative;
+}
+
+.experience-badge {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--spacing-md);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
+    border: 3px solid var(--accent);
+}
+
+.badge-years {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .trust-icon {
@@ -1245,13 +1293,11 @@ img {
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     color: var(--black);
-    text-align: center;
 }
 
 .location-column ul {
     list-style: none;
     padding: 0;
-    text-align: center;
 }
 
 .location-column li {
@@ -1668,5 +1714,42 @@ img {
 
     .trust-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ===== MOBILE STICKY CALL BUTTON ===== */
+.mobile-call-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none; /* Hidden by default, shown on mobile via JS */
+    background: var(--primary);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(200, 16, 46, 0.4);
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-call-button:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 16px rgba(200, 16, 46, 0.5);
+    transform: translateY(-2px);
+}
+
+.mobile-call-button .phone-icon {
+    font-size: 1.2rem;
+}
+
+/* Show button only on mobile/tablet */
+@media (max-width: 992px) {
+    .mobile-call-button {
+        display: flex;
     }
 }

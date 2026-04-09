@@ -12,7 +12,7 @@ async function fetchEquipment(limit = null, category = null) {
         query += ` && category == "${category}"`;
     }
     
-    query += ']{name, slug, category, shortDescription, fullDescription, condition, mainImage, inStock}';
+    query += ']{name, slug, category, shortDescription, fullDescription, condition, mainImage, inStock, price}';
     query += ' | order(_createdAt desc)';
     
     if (limit) {
@@ -58,6 +58,9 @@ function createEquipmentCard(equipment) {
     // Truncate to ~100 characters for card view
     const shortDesc = description.length > 100 ? description.substring(0, 100) + '...' : description;
     
+    // Determine button text based on price
+    const callButtonText = equipment.price ? 'Call to Purchase' : 'Request Quote';
+    
     return `
         <div class="equipment-card">
             <div class="equipment-image">
@@ -73,7 +76,10 @@ function createEquipmentCard(equipment) {
                 <span class="equipment-badge">${equipment.condition || 'Available'}</span>
                 <h3 class="equipment-name">${equipment.name}</h3>
                 <p class="equipment-description">${shortDesc}</p>
-                <a href="${detailUrl}" class="equipment-cta">View Details</a>
+                <div class="equipment-card-actions">
+                    <a href="${detailUrl}" class="equipment-cta equipment-cta-secondary">View Details</a>
+                    <a href="tel:+12153331300" class="equipment-cta equipment-cta-primary">${callButtonText}</a>
+                </div>
             </div>
         </div>
     `;

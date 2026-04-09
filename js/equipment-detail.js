@@ -94,7 +94,7 @@ function renderEquipmentDetail(equipment) {
     
     if (equipmentCategory) {
         if (equipmentCategory === 'mixers') {
-            categoryLink = 'equipment.html?category=mixers';
+            categoryLink = 'mixers.html';
             categoryName = 'Hobart Mixers';
         } else if (equipmentCategory === 'parts') {
             categoryLink = 'equipment.html?category=parts';
@@ -194,17 +194,21 @@ function renderEquipmentDetail(equipment) {
                 ${priceDisplay}
                 ${shippingNoteHTML}
 
+                ${equipment.price 
+                    ? `<div class="detail-actions">
+                        <a href="tel:+12153331300" class="btn btn-primary">📞 Call to Purchase - (215) 333-1300</a>
+                    </div>`
+                    : `<div class="detail-actions">
+                        <a href="tel:+12153331300" class="btn btn-primary">📞 Request a Quote - Call Now</a>
+                    </div>`
+                }
+
                 <div class="detail-description">
                     ${equipment.fullDescription || equipment.shortDescription || 'No description available.'}
                 </div>
 
                 ${additionalSpecsHTML}
                 ${specsHTML}
-
-                <div class="detail-actions">
-                    <a href="tel:+12155551234" class="btn btn-primary">Call for Pricing</a>
-                    <a href="contact.html" class="btn btn-secondary">Request Information</a>
-                </div>
             </div>
         </div>
     `;
