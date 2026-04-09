@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jomarc.com/sitemap.xml
+
+# Crawl-delay (optional, adjust if needed)
+Crawl-delay: 1

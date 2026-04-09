@@ -1,13 +1,32 @@
 // Sanity Configuration
-const SANITY_PROJECT_ID = 'feul6wbq'; // Replace with your Sanity project ID
+const SANITY_PROJECT_ID = 'feul6wbq';
 const SANITY_DATASET = 'production';
 const SANITY_API_VERSION = '2024-01-01';
 
-// Sanity Client Query Function
+// Fetch Equipment with Caching and Retry Logic
 async function fetchEquipment(limit = null, category = null) {
+    // Check cache first
+    const cacheKey = `equipment_${category || 'all'}_${limit || 'all'}`;
+    const cached = sessionStorage.getItem(cacheKey);
+    
+    if (cached) {
+        try {
+            const parsedCache = JSON.parse(cached);
+            const cacheTime = parsedCache.timestamp;
+            const now = Date.now();
+            
+            // Cache valid for 5 minutes
+            if (now - cacheTime < 300000) {
+                console.log('Using cached equipment data');
+                return parsedCache.data;
+            }
+        } catch (e) {
+            sessionStorage.removeItem(cacheKey);
+        }
+    }
+    
     let query = '*[_type == "equipment"';
     
-    // Add category filter if specified
     if (category && category !== 'all') {
         query += ` && category == "${category}"`;
     }
@@ -21,16 +40,49 @@ async function fetchEquipment(limit = null, category = null) {
     
     const url = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${encodeURIComponent(query)}`;
     
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Failed to fetch equipment');
+    let retries = 3;
+    
+    while (retries > 0) {
+        try {
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            // Cache the result
+            sessionStorage.setItem(cacheKey, JSON.stringify({
+                data: data.result,
+                timestamp: Date.now()
+            }));
+            
+            return data.result;
+            
+        } catch (error) {
+            console.error(`Fetch attempt failed (${4 - retries}/3):`, error);
+            retries--;
+            
+            if (retries === 0) {
+                console.error('All fetch attempts failed:', error);
+                
+                // Try to return stale cache if available
+                if (cached) {
+                    console.log('Returning stale cached data as fallback');
+                    try {
+                        return JSON.parse(cached).data;
+                    } catch (e) {
+                        return null;
+                    }
+                }
+                
+                return null;
+            }
+            
+            // Wait before retry (exponential backoff)
+            await new Promise(resolve => setTimeout(resolve, 1000 * (4 - retries)));
         }
-        const data = await response.json();
-        return data.result;
-    } catch (error) {
-        console.error('Error fetching equipment:', error);
-        return null;
     }
 }
 
@@ -48,17 +100,14 @@ function getImageUrl(imageRef) {
 function createEquipmentCard(equipment) {
     const imageUrl = equipment.mainImage ? getImageUrl(equipment.mainImage) : null;
     
-    // Build detail URL with category if available
     let detailUrl = equipment.slug ? `equipment-detail.html?slug=${equipment.slug.current}` : '#';
     if (equipment.category) {
         detailUrl += `&category=${equipment.category}`;
     }
     
     const description = equipment.shortDescription || equipment.fullDescription || '';
-    // Truncate to ~100 characters for card view
     const shortDesc = description.length > 100 ? description.substring(0, 100) + '...' : description;
     
-    // Determine button text based on price
     const callButtonText = equipment.price ? 'Call to Purchase' : 'Request Quote';
     
     return `
@@ -85,6 +134,31 @@ function createEquipmentCard(equipment) {
     `;
 }
 
+// Better loading state
+function showLoading(container, message = 'Loading equipment inventory...') {
+    if (container) {
+        container.innerHTML = `
+            <div class="equipment-loading">
+                <div class="loading-spinner"></div>
+                <p>${message}</p>
+            </div>
+        `;
+    }
+}
+
+// Better error state
+function showError(container, message = 'Unable to load equipment at this time') {
+    if (container) {
+        container.innerHTML = `
+            <div class="equipment-error">
+                <p>${message}</p>
+                <p>Please <a href="tel:+12153331300">call us at (215) 333-1300</a> for current inventory.</p>
+                <button onclick="location.reload()" class="btn btn-secondary">Try Again</button>
+            </div>
+        `;
+    }
+}
+
 // Load Featured Equipment (Homepage)
 async function loadFeaturedEquipment() {
     const container = document.getElementById('featuredEquipment');
@@ -92,10 +166,10 @@ async function loadFeaturedEquipment() {
     
     showLoading(container, 'Loading featured equipment...');
     
-    const equipment = await fetchEquipment(3); // Get 3 featured items
+    const equipment = await fetchEquipment(3);
     
     if (!equipment || equipment.length === 0) {
-        container.innerHTML = '<div class="equipment-loading">No equipment available at this time.</div>';
+        showError(container, 'No featured equipment available at this time');
         return;
     }
     
