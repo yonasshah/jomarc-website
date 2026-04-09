@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refurbished Hobart Mixers | Jomarc Commercial Food Equipment</title>
+    <meta name="description" content="Quality refurbished Hobart commercial mixers. Expert refurbishment, warranty included. Philadelphia & South Jersey. Shop 60qt, 80qt, 140qt Hobart mixers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <img src="images/jomarc_logo.png" alt="Jomarc Commercial Food Equipment" />
+                </a>
+                
+                <button class="mobile-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="equipment.html" class="nav-link active">Equipment</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="blog.html" class="nav-link">Resources</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="tel:+12153331300" class="nav-phone">(215) 333-1300</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html">Home</a> / <a href="equipment.html">Equipment</a> / Hobart Mixers
+            </div>
+            <h1 class="category-title">Refurbished Hobart Mixers</h1>
+            <p class="category-description">Premium refurbished Hobart commercial mixers, professionally restored to factory condition. Each unit is thoroughly inspected, tested, and backed by our warranty. Serving Philadelphia and South Jersey since 1991.</p>
+            
+            <div class="category-features">
+                <div class="cat-feature">
+                    <span class="cat-icon">✓</span>
+                    <span>Factory Condition Refurbishment</span>
+                </div>
+                <div class="cat-feature">
+                    <span class="cat-icon">✓</span>
+                    <span>Warranty Included</span>
+                </div>
+                <div class="cat-feature">
+                    <span class="cat-icon">✓</span>
+                    <span>Expert Hobart Specialists</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Grid -->
+    <section class="equipment-inventory">
+        <div class="container">
+            <div class="equipment-grid" id="allEquipment">
+                <div class="equipment-loading">Loading Hobart mixers...</div>
+            </div>
+
+            <div class="equipment-cta-section">
+                <h3>Looking for a specific Hobart mixer model?</h3>
+                <p>We can source and refurbish specific models. Contact us with your requirements.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/jomarc_logo.png" alt="Jomarc" style="height: 60px; margin-bottom: 16px;" />
+                    <p>Commercial Food Equipment<br>Sales & Service</p>
+                    <p class="footer-tagline">Serving Philadelphia & South Jersey since 1991</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li><a href="tel:+12153331300">(215) 333-1300</a></li>
+                        <li><a href="mailto:info@jomarc.com">info@jomarc.com</a></li>
+                        <li>8319 Torresdale Ave</li>
+                        <li>Philadelphia, PA, 19136</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Service Area</h4>
+                    <p>Philadelphia Metropolitan Area<br>South Jersey<br>Weekend availability for urgent needs</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jomarc Commercial Food Equipment. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/equipment.js"></script>
+    <script>
+        // Load mixers category on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllEquipment('mixers');
+        });
+    </script>
+</body>
+</html>

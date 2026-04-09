@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jomarc Commercial Food Equipment | Sales & Service - Philadelphia & South Jersey</title>
+    <meta name="description" content="Jomarc has been serving Philadelphia and South Jersey since 1991 with expert commercial food equipment repair, maintenance, and refurbished equipment sales. Hobart specialists.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <img src="images/jomarc_logo.png" alt="Jomarc Commercial Food Equipment" />
+                </a>
+                
+                <button class="mobile-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="equipment.html" class="nav-link">Equipment</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="blog.html" class="nav-link">Resources</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="tel:+12153331300" class="nav-phone">(215) 333-1300</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-carousel">
+            <div class="carousel-slide active">
+                <div class="carousel-overlay"></div>
+                <img src="images/maintenance-special-page.jpg" alt="Jomarc Service Van">
+            </div>
+            <div class="carousel-slide">
+                <div class="carousel-overlay"></div>
+                <img src="images/mixer.jpg" alt="Commercial Hobart Mixer">
+            </div>
+            <div class="carousel-slide">
+                <div class="carousel-overlay"></div>
+                <img src="images/pizza.jpg" alt="Commercial Kitchen Equipment">
+            </div>
+        </div>
+        
+        <div class="container hero-content-wrapper">
+            <div class="hero-content">
+                <h1 class="hero-title">Jomarc Commercial Food Equipment</h1>
+                <p class="hero-subtitle">Sales & Service - Philadelphia & South Jersey Since 1991</p>
+                <div class="hero-buttons">
+                    <a href="equipment.html" class="btn btn-primary">View Equipment</a>
+                    <a href="services.html" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Carousel Controls -->
+        <<button class="carousel-control prev" onclick="moveSlide(-1)" aria-label="Previous slide">&lt;</button>
+        <button class="carousel-control next" onclick="moveSlide(1)" aria-label="Next slide">&gt;</button>
+        
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button class="indicator active" onclick="goToSlide(0)" aria-label="Go to slide 1"></button>
+            <button class="indicator" onclick="goToSlide(1)" aria-label="Go to slide 2"></button>
+            <button class="indicator" onclick="goToSlide(2)" aria-label="Go to slide 3"></button>
+        </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section class="value-props">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3>Refurbished Equipment Available</h3>
+                    <p>Quality refurbished commercial equipment at competitive prices. Each piece professionally restored and tested.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3>Expert Repair & Service</h3>
+                    <p>Specialized in commercial kitchen equipment repair and maintenance. Fast, reliable service when you need it most.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>30+ Years Experience</h3>
+                    <p>Serving Philadelphia and South Jersey since 1991. Trusted by restaurants, bakeries, and commercial kitchens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Categories -->
+    <section class="equipment-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+                <p class="section-subtitle">Browse our inventory of refurbished commercial equipment</p>
+            </div>
+
+            <div class="category-grid">
+                <a href="equipment.html?category=mixers" class="category-card">
+                    <div class="category-icon">🍴</div>
+                    <h3 class="category-title">Hobart Mixers</h3>
+                    <p class="category-description">Premium refurbished Hobart commercial mixers. 60qt, 80qt, and 140qt models in stock.</p>
+                    <span class="category-cta">Browse Mixers →</span>
+                </a>
+
+                <a href="equipment.html?category=parts" class="category-card">
+                    <div class="category-icon">⚙️</div>
+                    <h3 class="category-title">Parts & Accessories</h3>
+                    <p class="category-description">Hobart-compatible agitators, bowls, attachments, and replacement parts available now.</p>
+                    <span class="category-cta">Browse Parts →</span>
+                </a>
+
+                <a href="equipment.html?category=kitchen-equipment" class="category-card">
+                    <div class="category-icon">🔧</div>
+                    <h3 class="category-title">Kitchen Equipment</h3>
+                    <p class="category-description">Pre-owned commercial dishwashers, slicers, food processors, and more for sale.</p>
+                    <span class="category-cta">Browse Equipment →</span>
+                </a>
+            </div>
+
+            <div class="section-cta">
+                <a href="equipment.html" class="btn btn-primary">Browse All Restaurant Equipment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Professional Repair & Maintenance Services</h2>
+                    <p>Our experienced technicians provide expert repair and maintenance for all types of commercial kitchen equipment. Specializing in Hobart mixers and commercial food processors.</p>
+                    <ul class="services-list">
+                        <li>Scheduled maintenance programs</li>
+                        <li>Emergency repair service</li>
+                        <li>Equipment troubleshooting</li>
+                        <li>Parts replacement</li>
+                        <li>Equipment refurbishment</li>
+                    </ul>
+                    <a href="services.html" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="services-image">
+                    <img src="images/jomarc_about.jpg" alt="Jomarc Commercial Food Equipment Service Van" style="width: 100%; height: 100%; object-fit: fill; border-radius: var(--border-radius);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="trust-signals">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">📍</div>
+                    <h4>Service Area</h4>
+                    <p>Philadelphia Metro & South Jersey</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🕒</div>
+                    <h4>Hours</h4>
+                    <p>Mon-Fri: 7:30AM-5:00PM<br>Weekend service available</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⭐</div>
+                    <h4>Established</h4>
+                    <p>Serving since 1991<br>30+ years experience</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔧</div>
+                    <h4>Specialization</h4>
+                    <p>Hobart Equipment Experts<br>All commercial brands</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/jomarc_logo.png" alt="Jomarc" style="height: 60px; margin-bottom: 16px;" />
+                    <p>Commercial Food Equipment<br>Sales & Service</p>
+                    <p class="footer-tagline">Serving Philadelphia & South Jersey since 1991</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li><a href="tel:+12153331300">(215) 333-1300</a></li>
+                        <li><a href="mailto:info@jomarc.com">info@jomarc.com</a></li>
+                        <li>Philadelphia, PA</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Service Area</h4>
+                    <p>Philadelphia Metropolitan Area<br>South Jersey<br>Weekend availability for urgent needs</p>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p><strong>DISCLAIMER:</strong> Hobart is a registered trademark of an Illinois Tool Works Company. All parts shown are provided by Jomarc as after market replacement parts for Hobart equipment. The above parts are sold by Jomarc as replacement parts for Hobart equipment. Jomarc is not affiliated with Hobart or Illinois Tool Works Company.</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jomarc Commercial Food Equipment. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/equipment.js"></script>
+</body>
+</html>
