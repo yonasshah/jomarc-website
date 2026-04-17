@@ -254,4 +254,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     document.getElementById('equipmentDetail').innerHTML = renderEquipmentDetail(equipment);
+    // Initialize lightbox after content is rendered
+    if (typeof window.initLightbox === 'function') {
+        setTimeout(window.initLightbox, 200);
+    }
 });
