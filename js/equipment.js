@@ -31,8 +31,12 @@ async function fetchEquipment(limit = null, category = null) {
         query += ` && category == "${category}"`;
     }
     
-    query += ']{name, slug, category, shortDescription, fullDescription, condition, mainImage, inStock, price}';
-    query += ' | order(_createdAt desc)';
+    query += ']{name, slug, category, shortDescription, fullDescription, condition, mainImage, inStock, price, quartSize}';
+    if (category === 'mixers') {
+        query += ' | order(quartSize asc)';
+    } else {
+        query += ' | order(_createdAt desc)';
+    }
     
     if (limit) {
         query += ` [0...${limit}]`;
