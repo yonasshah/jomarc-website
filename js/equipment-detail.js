@@ -15,6 +15,7 @@ async function fetchEquipmentBySlug(slug) {
         name,
         slug,
         category,
+        quartSize,
         shortDescription,
         fullDescription,
         condition,

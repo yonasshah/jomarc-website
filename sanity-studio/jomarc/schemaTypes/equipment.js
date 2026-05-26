@@ -34,6 +34,13 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'quartSize',
+      title: 'Quart Size',
+      type: 'number',
+      description: 'Only needed for Hobart mixers. Used to sort mixers from smallest to largest.',
+      hidden: ({document}) => document?.category !== 'mixers'
+    },
+    {
       name: 'inStock',
       title: 'Stock Status',
       type: 'boolean',
