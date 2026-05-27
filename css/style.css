@@ -1704,15 +1704,16 @@ button:focus:not(:focus-visible) {
 
 /* Better button visibility in CTA sections */
 .cta-section .btn-secondary {
-    background: white;
-    border-color: var(--primary);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    background: transparent;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: none;
 }
 
 .cta-section .btn-secondary:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+    background: white;
+    color: var(--navy);
+    border-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -1720,7 +1721,7 @@ button:focus:not(:focus-visible) {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
-    color: var(--black);
+    color: #ffffff;
 }
 
 .cta-section p {
