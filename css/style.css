@@ -557,7 +557,7 @@ img {
 .equipment-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .equipment-details {
@@ -2534,6 +2534,13 @@ body {
     letter-spacing: -0.05em;
     font-weight: 900;
 }
+.equipment-quart {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-xs);
+}
 
 .services-text p {
     color: #5f6b7a;
@@ -2782,5 +2789,6 @@ body {
     .cta-section {
         padding: 58px 0;
     }
+    
 }
 

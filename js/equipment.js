@@ -29,13 +29,15 @@ async function fetchEquipment(limit = null, category = null) {
     
     if (category && category !== 'all') {
         query += ` && category == "${category}"`;
+    } else {
+        query += ' && category != "kitchen-equipment"';
     }
     
     query += ']{name, slug, category, shortDescription, fullDescription, condition, mainImage, inStock, price, quartSize}';
     if (category === 'mixers') {
         query += ' | order(quartSize asc)';
     } else {
-        query += ' | order(_createdAt desc)';
+        query += ' | order(category asc, quartSize asc, _createdAt desc)';
     }
     
     if (limit) {
@@ -128,6 +130,7 @@ function createEquipmentCard(equipment) {
             <div class="equipment-details">
                 <span class="equipment-badge">${equipment.condition || 'Available'}</span>
                 <h3 class="equipment-name">${equipment.name}</h3>
+                ${equipment.quartSize ? `<span class="equipment-quart">${equipment.quartSize} Quart</span>` : ''}
                 <p class="equipment-description">${shortDesc}</p>
                 <div class="equipment-card-actions">
                     <a href="${detailUrl}" class="equipment-cta equipment-cta-secondary">View Details</a>
