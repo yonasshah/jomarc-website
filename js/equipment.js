@@ -35,7 +35,7 @@ async function fetchEquipment(limit = null, category = null) {
     if (category === 'mixers') {
         query += ' | order(quartSize asc)';
     } else {
-        query += ' | order(category asc, quartSize asc, _createdAt desc)';
+        query += ' | order(select(category == "mixers" => 0, category == "bowls" => 1, category == "parts" => 2) asc, quartSize asc, _createdAt desc)';
     }
     
     if (limit) {
@@ -128,7 +128,7 @@ function createEquipmentCard(equipment) {
             <div class="equipment-details">
                 <span class="equipment-badge">${equipment.condition || 'Available'}</span>
                 <h3 class="equipment-name">${equipment.name}</h3>
-                ${equipment.quartSize ? `<span class="equipment-quart">${equipment.quartSize} Quart</span>` : ''}
+                ${equipment.quartSize && equipment.category !== 'bowls' ? `<span class="equipment-quart">${equipment.quartSize} Quart</span>` : ''}
                 <p class="equipment-description">${shortDesc}</p>
                 <div class="equipment-card-actions">
                     <a href="${detailUrl}" class="equipment-cta equipment-cta-secondary">View Details</a>

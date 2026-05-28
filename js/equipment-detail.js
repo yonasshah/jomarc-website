@@ -100,9 +100,9 @@ function renderEquipmentDetail(equipment) {
         } else if (equipmentCategory === 'parts') {
             categoryLink = 'equipment.html?category=parts';
             categoryName = 'Parts & Accessories';
-        } else if (equipmentCategory === 'kitchen-equipment') {
-            categoryLink = 'equipment.html?category=kitchen-equipment';
-            categoryName = 'Kitchen Equipment';
+        } else if (equipmentCategory === 'bowls') {
+            categoryLink = 'equipment.html?category=bowls';
+            categoryName = 'Stainless Steel Bowls';
         } else {
             categoryLink = `equipment.html?category=${equipmentCategory}`;
             categoryName = equipmentCategory.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
