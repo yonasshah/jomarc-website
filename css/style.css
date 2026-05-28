@@ -2828,3 +2828,35 @@ body {
         padding: 58px 0;
     }
 }
+.preview-item h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.preview-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+.preview-icon svg {
+    width: 26px;
+    height: 26px;
+}
+.info-icon {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    color: var(--primary);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.info-icon svg {
+    width: 28px;
+    height: 28px;
+}

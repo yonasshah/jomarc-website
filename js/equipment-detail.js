@@ -95,7 +95,7 @@ function renderEquipmentDetail(equipment) {
     
     if (equipmentCategory) {
         if (equipmentCategory === 'mixers') {
-            categoryLink = 'mixers.html';
+            categoryLink = 'equipment.html?category=mixers';
             categoryName = 'Hobart Mixers';
         } else if (equipmentCategory === 'parts') {
             categoryLink = 'equipment.html?category=parts';
