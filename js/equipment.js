@@ -113,6 +113,18 @@ function createEquipmentCard(equipment) {
     const shortDesc = description.length > 100 ? description.substring(0, 100) + '...' : description;
     
     const callButtonText = equipment.price ? 'Call to Purchase' : 'Request Quote';
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    const equipmentNameParam = encodeURIComponent(equipment.name || 'Selected equipment');
+
+    const quoteHref = isMobile
+        ? 'tel:+12153331300'
+        : `contact.html?subject=equipment-inquiry&equipment=${equipmentNameParam}`;
+
+    const quoteLabel = isMobile
+        ? (equipment.price ? 'Call to Purchase' : 'Request Quote')
+        : (equipment.price ? 'Purchase Inquiry' : 'Request Quote');
     
     return `
         <div class="equipment-card">
@@ -132,7 +144,7 @@ function createEquipmentCard(equipment) {
                 <p class="equipment-description">${shortDesc}</p>
                 <div class="equipment-card-actions">
                     <a href="${detailUrl}" class="equipment-cta equipment-cta-secondary">View Details</a>
-                    <a href="tel:+12153331300" class="equipment-cta equipment-cta-primary">${callButtonText}</a>
+                    <a href="${quoteHref}" class="equipment-cta equipment-cta-primary">${quoteLabel}</a>
                 </div>
             </div>
         </div>

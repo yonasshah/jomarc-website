@@ -203,6 +203,26 @@
 </div>
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+
+            const subject = params.get('subject');
+            const equipment = params.get('equipment');
+
+            const subjectSelect = document.getElementById('subject');
+            const messageBox = document.getElementById('message');
+
+            if (subject && subjectSelect) {
+                subjectSelect.value = subject;
+            }
+
+            if (equipment && messageBox) {
+                messageBox.value = `Hello, I am interested in receiving a quote for the ${equipment}. Please contact me with more information.`;
+            }
+        });
+    </script>
 
     <script src="js/main.js"></script>
     <script src="js/form-validation.js"></script>

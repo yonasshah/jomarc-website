@@ -2750,24 +2750,73 @@ body {
 
 @media (max-width: 560px) {
     .hero {
-        min-height: 85vh;
-        padding: 72px 0;
+        min-height: 500px;
+        height: auto;
+        padding: 64px 0 56px;
+        text-align: center;
     }
 
     .hero-title {
-        font-size: 2.45rem;
+        font-size: 2.05rem;
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        margin-bottom: 18px;
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.98rem;
+        line-height: 1.55;
+        margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
     }
 
     .hero-buttons .btn {
         width: 100%;
+        padding: 12px 18px;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-slide:nth-child(1) img {
+        object-position: center 65%;
+    }
+
+    .carousel-slide:nth-child(2) img {
+        object-position: center center;
+    }
+
+    .carousel-slide:nth-child(3) img {
+        object-position: center 45%;
+    }
+
+    .carousel-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(8, 17, 38, 0.88),
+            rgba(8, 17, 38, 0.72)
+        );
     }
 
     .carousel-control {
         display: none;
+    }
+
+    .carousel-indicators {
+        display: flex;
+        bottom: 16px;
+        gap: 8px;
+    }
+
+    .indicator {
+        width: 9px;
+        height: 9px;
     }
 
     .value-props,
@@ -2778,6 +2827,4 @@ body {
     .cta-section {
         padding: 58px 0;
     }
-    
 }
-
