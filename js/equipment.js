@@ -112,8 +112,6 @@ function createEquipmentCard(equipment) {
     const description = equipment.shortDescription || equipment.fullDescription || '';
     const shortDesc = description.length > 100 ? description.substring(0, 100) + '...' : description;
     
-    const callButtonText = equipment.price ? 'Call to Purchase' : 'Request Quote';
-
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     const equipmentNameParam = encodeURIComponent(equipment.name || 'Selected equipment');
@@ -123,8 +121,8 @@ function createEquipmentCard(equipment) {
         : `contact.html?subject=equipment-inquiry&equipment=${equipmentNameParam}`;
 
     const quoteLabel = isMobile
-        ? (equipment.price ? 'Call to Purchase' : 'Request Quote')
-        : (equipment.price ? 'Purchase Inquiry' : 'Request Quote');
+        ? 'Call for Quote'
+        : 'Request Quote';
     
     return `
         <div class="equipment-card">
