@@ -2024,12 +2024,6 @@ button:focus:not(:focus-visible) {
     }
 
     .page-header,
-    .hero {
-        background: white !important;
-        border-bottom: 2px solid black;
-        padding: 10px 0 !important;
-        margin: 0 !important;
-    }
 
     /* Equipment detail page print optimization */
     .detail-container {
@@ -2756,7 +2750,7 @@ body {
 
 @media (max-width: 560px) {
     .hero {
-        min-height: auto;
+        min-height: 85vh;
         padding: 72px 0;
     }
 
