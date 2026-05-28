@@ -27,7 +27,7 @@ export default {
         list: [
           {title: 'Hobart Mixers', value: 'mixers'},
           {title: 'Agitators, Parts & Accessories', value: 'parts'},
-          {title: 'Pre-Owned Commercial Kitchen Equipment', value: 'kitchen-equipment'}
+          {title: 'Stainless Steel Bowls', value: 'bowls'}
         ],
         layout: 'radio'
       },
@@ -37,8 +37,7 @@ export default {
       name: 'quartSize',
       title: 'Quart Size',
       type: 'number',
-      description: 'Only needed for Hobart mixers. Used to sort mixers from smallest to largest.',
-      hidden: ({document}) => document?.category !== 'mixers'
+      description: 'Used to sort items from smallest to largest',
     },
     {
       name: 'inStock',
@@ -68,7 +67,7 @@ export default {
       options: {
         list: [
           {title: 'Fully Refurbished', value: 'Fully Refurbished'},
-          {title: 'Like New', value: 'Like New'},
+          {title: 'New', value: 'New'},
           {title: 'Good Condition', value: 'Good Condition'}
         ]
       }

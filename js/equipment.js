@@ -29,9 +29,7 @@ async function fetchEquipment(limit = null, category = null) {
     
     if (category && category !== 'all') {
         query += ` && category == "${category}"`;
-    } else {
-        query += ' && category != "kitchen-equipment"';
-    }
+    } 
     
     query += ']{name, slug, category, shortDescription, fullDescription, condition, mainImage, inStock, price, quartSize}';
     if (category === 'mixers') {
