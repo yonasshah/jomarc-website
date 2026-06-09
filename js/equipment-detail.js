@@ -77,11 +77,6 @@ function renderEquipmentDetail(equipment) {
         ? `<div class="detail-price">$${equipment.price.toLocaleString()}</div>`
         : `<div class="detail-price">Call for Pricing</div>`;
 
-    // Stock status badge
-    const stockBadge = equipment.inStock 
-        ? '<span class="stock-badge in-stock">✓ In Stock</span>'
-        : '<span class="stock-badge out-of-stock">Out of Stock</span>';
-
     // Dynamic breadcrumb based on category and referrer
     let categoryLink = 'equipment.html';
     let categoryName = 'Equipment';
@@ -186,7 +181,6 @@ function renderEquipmentDetail(equipment) {
 
                 <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 16px;">
                     <span class="detail-badge">${equipment.condition || 'Available'}</span>
-                    ${stockBadge}
                 </div>
                 
                 <h1 class="detail-title">${equipment.name}</h1>
