@@ -33,9 +33,9 @@ async function fetchEquipment(limit = null, category = null) {
     
     query += ']{name, slug, category, shortDescription, fullDescription, condition, mainImage, inStock, price, quartSize}';
     if (category === 'mixers') {
-        query += ' | order(quartSize asc)';
+        query += ' | order(quartSize asc, name asc)';
     } else {
-        query += ' | order(select(category == "mixers" => 0, category == "bowls" => 1, category == "parts" => 2) asc, quartSize asc, _createdAt desc)';
+        query += ' | order(select(category == "mixers" => 0, category == "bowls" => 1, category == "parts" => 2) asc, quartSize asc, name asc, _createdAt desc)';
     }
     
     if (limit) {
